@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		DCE2B5A32FAD720B0097A68C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCE2B5812FAD71FA0097A68C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCE2B5882FAD71FA0097A68C;
+			remoteInfo = "Privacy Intelligence Assistant";
+		};
+		DCE2B5AD2FAD720B0097A68C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCE2B5812FAD71FA0097A68C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCE2B5882FAD71FA0097A68C;
+			remoteInfo = "Privacy Intelligence Assistant";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DCE2B5892FAD71FA0097A68C /* Privacy Intelligence Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Privacy Intelligence Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCE2B5A22FAD720B0097A68C /* Privacy Intelligence AssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Privacy Intelligence AssistantTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCE2B5AC2FAD720B0097A68C /* Privacy Intelligence AssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Privacy Intelligence AssistantUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DCE2B5B42FAD720B0097A68C /* Exceptions for "Privacy Intelligence Assistant" folder in "Privacy Intelligence Assistant" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DCE2B5882FAD71FA0097A68C /* Privacy Intelligence Assistant */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DCE2B58B2FAD71FA0097A68C /* Privacy Intelligence Assistant */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DCE2B5B42FAD720B0097A68C /* Exceptions for "Privacy Intelligence Assistant" folder in "Privacy Intelligence Assistant" target */,
+			);
+			path = "Privacy Intelligence Assistant";
+			sourceTree = "<group>";
+		};
+		DCE2B5A52FAD720B0097A68C /* Privacy Intelligence AssistantTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Privacy Intelligence AssistantTests";
+			sourceTree = "<group>";
+		};
+		DCE2B5AF2FAD720B0097A68C /* Privacy Intelligence AssistantUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Privacy Intelligence AssistantUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCE2B5862FAD71FA0097A68C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE2B59F2FAD720B0097A68C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE2B5A92FAD720B0097A68C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCE2B5802FAD71FA0097A68C = {
+			isa = PBXGroup;
+			children = (
+				DCE2B58B2FAD71FA0097A68C /* Privacy Intelligence Assistant */,
+				DCE2B5A52FAD720B0097A68C /* Privacy Intelligence AssistantTests */,
+				DCE2B5AF2FAD720B0097A68C /* Privacy Intelligence AssistantUITests */,
+				DCE2B58A2FAD71FA0097A68C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCE2B58A2FAD71FA0097A68C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCE2B5892FAD71FA0097A68C /* Privacy Intelligence Assistant.app */,
+				DCE2B5A22FAD720B0097A68C /* Privacy Intelligence AssistantTests.xctest */,
+				DCE2B5AC2FAD720B0097A68C /* Privacy Intelligence AssistantUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCE2B5882FAD71FA0097A68C /* Privacy Intelligence Assistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCE2B5B52FAD720B0097A68C /* Build configuration list for PBXNativeTarget "Privacy Intelligence Assistant" */;
+			buildPhases = (
+				DCE2B5852FAD71FA0097A68C /* Sources */,
+				DCE2B5862FAD71FA0097A68C /* Frameworks */,
+				DCE2B5872FAD71FA0097A68C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DCE2B58B2FAD71FA0097A68C /* Privacy Intelligence Assistant */,
+			);
+			name = "Privacy Intelligence Assistant";
+			packageProductDependencies = (
+			);
+			productName = "Privacy Intelligence Assistant";
+			productReference = DCE2B5892FAD71FA0097A68C /* Privacy Intelligence Assistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DCE2B5A12FAD720B0097A68C /* Privacy Intelligence AssistantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCE2B5BA2FAD720B0097A68C /* Build configuration list for PBXNativeTarget "Privacy Intelligence AssistantTests" */;
+			buildPhases = (
+				DCE2B59E2FAD720B0097A68C /* Sources */,
+				DCE2B59F2FAD720B0097A68C /* Frameworks */,
+				DCE2B5A02FAD720B0097A68C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCE2B5A42FAD720B0097A68C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DCE2B5A52FAD720B0097A68C /* Privacy Intelligence AssistantTests */,
+			);
+			name = "Privacy Intelligence AssistantTests";
+			packageProductDependencies = (
+			);
+			productName = "Privacy Intelligence AssistantTests";
+			productReference = DCE2B5A22FAD720B0097A68C /* Privacy Intelligence AssistantTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DCE2B5AB2FAD720B0097A68C /* Privacy Intelligence AssistantUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCE2B5BD2FAD720B0097A68C /* Build configuration list for PBXNativeTarget "Privacy Intelligence AssistantUITests" */;
+			buildPhases = (
+				DCE2B5A82FAD720B0097A68C /* Sources */,
+				DCE2B5A92FAD720B0097A68C /* Frameworks */,
+				DCE2B5AA2FAD720B0097A68C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCE2B5AE2FAD720B0097A68C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DCE2B5AF2FAD720B0097A68C /* Privacy Intelligence AssistantUITests */,
+			);
+			name = "Privacy Intelligence AssistantUITests";
+			packageProductDependencies = (
+			);
+			productName = "Privacy Intelligence AssistantUITests";
+			productReference = DCE2B5AC2FAD720B0097A68C /* Privacy Intelligence AssistantUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCE2B5812FAD71FA0097A68C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					DCE2B5882FAD71FA0097A68C = {
+						CreatedOnToolsVersion = 26.3;
+					};
+					DCE2B5A12FAD720B0097A68C = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = DCE2B5882FAD71FA0097A68C;
+					};
+					DCE2B5AB2FAD720B0097A68C = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = DCE2B5882FAD71FA0097A68C;
+					};
+				};
+			};
+			buildConfigurationList = DCE2B5842FAD71FA0097A68C /* Build configuration list for PBXProject "Privacy Intelligence Assistant" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DCE2B5802FAD71FA0097A68C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DCE2B58A2FAD71FA0097A68C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCE2B5882FAD71FA0097A68C /* Privacy Intelligence Assistant */,
+				DCE2B5A12FAD720B0097A68C /* Privacy Intelligence AssistantTests */,
+				DCE2B5AB2FAD720B0097A68C /* Privacy Intelligence AssistantUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCE2B5872FAD71FA0097A68C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE2B5A02FAD720B0097A68C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE2B5AA2FAD720B0097A68C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCE2B5852FAD71FA0097A68C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE2B59E2FAD720B0097A68C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE2B5A82FAD720B0097A68C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCE2B5A42FAD720B0097A68C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCE2B5882FAD71FA0097A68C /* Privacy Intelligence Assistant */;
+			targetProxy = DCE2B5A32FAD720B0097A68C /* PBXContainerItemProxy */;
+		};
+		DCE2B5AE2FAD720B0097A68C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCE2B5882FAD71FA0097A68C /* Privacy Intelligence Assistant */;
+			targetProxy = DCE2B5AD2FAD720B0097A68C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DCE2B5B62FAD720B0097A68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Privacy Intelligence Assistant/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Fsusanto15.Privacy-Intelligence-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DCE2B5B72FAD720B0097A68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Privacy Intelligence Assistant/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Fsusanto15.Privacy-Intelligence-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DCE2B5B82FAD720B0097A68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DCE2B5B92FAD720B0097A68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCE2B5BB2FAD720B0097A68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Fsusanto15.Privacy-Intelligence-AssistantTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Privacy Intelligence Assistant.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Privacy Intelligence Assistant";
+			};
+			name = Debug;
+		};
+		DCE2B5BC2FAD720B0097A68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Fsusanto15.Privacy-Intelligence-AssistantTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Privacy Intelligence Assistant.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Privacy Intelligence Assistant";
+			};
+			name = Release;
+		};
+		DCE2B5BE2FAD720B0097A68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Fsusanto15.Privacy-Intelligence-AssistantUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Privacy Intelligence Assistant";
+			};
+			name = Debug;
+		};
+		DCE2B5BF2FAD720B0097A68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Fsusanto15.Privacy-Intelligence-AssistantUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Privacy Intelligence Assistant";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCE2B5842FAD71FA0097A68C /* Build configuration list for PBXProject "Privacy Intelligence Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCE2B5B82FAD720B0097A68C /* Debug */,
+				DCE2B5B92FAD720B0097A68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCE2B5B52FAD720B0097A68C /* Build configuration list for PBXNativeTarget "Privacy Intelligence Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCE2B5B62FAD720B0097A68C /* Debug */,
+				DCE2B5B72FAD720B0097A68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCE2B5BA2FAD720B0097A68C /* Build configuration list for PBXNativeTarget "Privacy Intelligence AssistantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCE2B5BB2FAD720B0097A68C /* Debug */,
+				DCE2B5BC2FAD720B0097A68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCE2B5BD2FAD720B0097A68C /* Build configuration list for PBXNativeTarget "Privacy Intelligence AssistantUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCE2B5BE2FAD720B0097A68C /* Debug */,
+				DCE2B5BF2FAD720B0097A68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCE2B5812FAD71FA0097A68C /* Project object */;
+}
