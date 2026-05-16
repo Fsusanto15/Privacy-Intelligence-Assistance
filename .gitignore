@@ -1,0 +1,13 @@
+# Xcode User Settings & Build files
+build/
+DerivedData/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# Large AI Model Weights (CRITICAL)
+*.gguf
+*.bin
+
+# OS files
+.DS_Store

@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DC5EAD542FB06E3F00AB1E3F /* LLM in Frameworks */ = {isa = PBXBuildFile; productRef = DC5EAD532FB06E3F00AB1E3F /* LLM */; settings = {ATTRIBUTES = (Required, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		DCE2B5A32FAD720B0097A68C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC5EAD542FB06E3F00AB1E3F /* LLM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = "Privacy Intelligence Assistant";
 			packageProductDependencies = (
+				DC5EAD532FB06E3F00AB1E3F /* LLM */,
 			);
 			productName = "Privacy Intelligence Assistant";
 			productReference = DCE2B5892FAD71FA0097A68C /* Privacy Intelligence Assistant.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = DCE2B5802FAD71FA0097A68C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DC5EAD522FB06E3F00AB1E3F /* XCRemoteSwiftPackageReference "LLM" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DCE2B58A2FAD71FA0097A68C /* Products */;
 			projectDirPath = "";
@@ -289,6 +298,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K378HV674V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Privacy Intelligence Assistant/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -320,6 +330,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K378HV674V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Privacy Intelligence Assistant/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -583,6 +594,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC5EAD522FB06E3F00AB1E3F /* XCRemoteSwiftPackageReference "LLM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/obra/LLM.swift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC5EAD532FB06E3F00AB1E3F /* LLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC5EAD522FB06E3F00AB1E3F /* XCRemoteSwiftPackageReference "LLM" */;
+			productName = LLM;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DCE2B5812FAD71FA0097A68C /* Project object */;
 }
