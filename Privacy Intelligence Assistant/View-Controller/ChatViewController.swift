@@ -7,15 +7,18 @@
 
 import UIKit
 import UniformTypeIdentifiers
+import SwiftData
 
 class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIDocumentPickerDelegate {
     
+    var modelContext: ModelContext?
     private let tableView = UITableView()
     private let inputContainerView = UIView()
     private let textField = UITextField()
     private let sendButton = UIButton(type: .system)
     private let attachButton = UIButton(type: .system)
     
+    private let loadingIndicator = UIActivityIndicatorView(style: .medium)
     private var messages: [ChatMessage] = []
     
     override func viewDidLoad() {
@@ -23,12 +26,37 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.backgroundColor = .systemBackground
         title = "Local RAG Chat"
         
-        // Initialize AI Core
         AIManager.shared.initializeEngine()
         
+        setupNavigationItems()
         setupTableView()
         setupInputBar()
         setupConstraints()
+        loadSavedMessages()
+    }
+    
+    private func setupNavigationItems() {
+        let modelMenuButton = UIBarButtonItem(
+            image: UIImage(systemName: "cpu"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapModelSelector)
+        )
+        navigationItem.leftBarButtonItem = modelMenuButton
+        
+        let newChatButton = UIBarButtonItem(
+            image: UIImage(systemName: "square.and.pencil"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapNewChat),
+        )
+        navigationItem.rightBarButtonItem = newChatButton
+        updateNavigationTitle()
+    }
+    
+    private func updateNavigationTitle() {
+        let activeModelName = AIManager.shared.activeLocalStrategy == .qwenLite ? "Qwen 0.5B" : "Bonsai 4B"
+        self.title = "\(activeModelName) Chat"
     }
     
     private func setupTableView() {
@@ -70,6 +98,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         sendButton.addTarget(self, action: #selector(didTapSend), for: .touchUpInside)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         inputContainerView.addSubview(sendButton)
+        
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        inputContainerView.addSubview(loadingIndicator)
     }
     
     private func setupConstraints() {
@@ -100,11 +132,106 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             sendButton.trailingAnchor.constraint(equalTo: inputContainerView.trailingAnchor, constant: -12),
             sendButton.centerYAnchor.constraint(equalTo: inputContainerView.centerYAnchor),
-            sendButton.widthAnchor.constraint(equalToConstant: 34)
+            sendButton.widthAnchor.constraint(equalToConstant: 34),
+            
+            loadingIndicator.trailingAnchor.constraint(equalTo: inputContainerView.trailingAnchor, constant: -12),
+            loadingIndicator.centerYAnchor.constraint(equalTo: inputContainerView.centerYAnchor),
+            loadingIndicator.widthAnchor.constraint(equalToConstant: 34)
         ])
     }
     
+    // MARK: - SwiftData Operations
+    
+    private func loadSavedMessages() {
+        guard let context = modelContext else { return }
+        let descriptor = FetchDescriptor<PersistedMessage>(sortBy: [SortDescriptor(\.timestamp)])
+        
+        do {
+            let saved = try context.fetch(descriptor)
+            self.messages = saved.map { dbMessage in
+                let sender: MessageSender = dbMessage.senderType == "user" ? .user : .ai(sourceContext: dbMessage.sourceContext)
+                return ChatMessage(text: dbMessage.text, sender: sender)
+            }
+            tableView.reloadData()
+            scrollToBottom(animated: false)
+        } catch {
+            print("Failed loading database history: \(error)")
+        }
+    }
+    
     // MARK: - Actions
+    
+    @objc private func didTapModelSelector() {
+        if AIManager.shared.isCurrentlyGenerating {
+            let warningAlert = UIAlertController(
+                title: "Engine Locked",
+                message: "Please wait before changing settings.",
+                preferredStyle: .alert
+            )
+            warningAlert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(warningAlert, animated: true)
+            return
+        }
+        
+        let actionSheet = UIAlertController(
+            title: "Select Local Intelligence Core",
+            message: "Choose which architecture model engine to load.",
+            preferredStyle: .actionSheet
+        )
+        
+        for strategy in LocalModelStrategy.allCases {
+            let isCurrent = AIManager.shared.activeLocalStrategy == strategy
+            let titleSuffix = isCurrent ? " (Active)" : ""
+            
+            let action = UIAlertAction(title: "\(strategy.rawValue)\(titleSuffix)", style: .default) { [weak self] _ in
+                guard let self = self else { return }
+                
+                // Execute runtime hot-swap migration pass safely
+                let success = AIManager.shared.switchModel(to: strategy)
+                if success {
+                    self.updateNavigationTitle()
+                }
+            }
+            
+            action.isEnabled = !isCurrent
+            actionSheet.addAction(action)
+        }
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        // iPad layout
+        if let popoverController = actionSheet.popoverPresentationController {
+            popoverController.barButtonItem = navigationItem.leftBarButtonItem
+        }
+        
+        present(actionSheet, animated: true)
+    }
+    
+    @objc private func didTapNewChat() {
+        let alert = UIAlertController(
+            title: "Start New Chat?",
+            message: "This will permanently wipe your current conversation text history and document index chunks.",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Reset Everything", style: .destructive, handler: { [weak self] _ in
+            self?.clearEntireSession()
+        }))
+        
+        present(alert, animated: true)
+    }
+    
+    private func clearEntireSession() {
+        guard let context = modelContext else { return }
+        
+        try? context.delete(model: PersistedMessage.self)
+        KnowledgeService.shared.clearAllChunks()
+        try? context.save()
+        
+        messages.removeAll()
+        tableView.reloadData()
+    }
     
     @objc private func didTapAttach() {
         let picker = UIDocumentPickerViewController(forOpeningContentTypes: [.pdf], asCopy: true)
@@ -116,48 +243,90 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let pickedURL = urls.first else { return }
         
-        // Ingest the local file securely using our service
-        KnowledgeService.shared.loadPDF(at: pickedURL)
+        setInterfaceProcessing(true)
         
-        // Show a temporary visual system confirmation in the message timeline
-        let confirmationMessage = ChatMessage(text: "📚 Ready! Ingested document: \(pickedURL.lastPathComponent)", sender: .ai(sourceContext: nil))
-        messages.append(confirmationMessage)
-        tableView.reloadData()
+        Task {
+            await KnowledgeService.shared.loadPDF(at: pickedURL)
+            
+            await MainActor.run {
+                self.setInterfaceProcessing(false)
+                let msgText = "📚 Ready! Ingested document: \(pickedURL.lastPathComponent)"
+                
+                let confirmationMessage = ChatMessage(text: msgText, sender: .ai(sourceContext: nil))
+                self.messages.append(confirmationMessage)
+                
+                let dbMsg = PersistedMessage(text: msgText, senderType: "ai")
+                self.modelContext?.insert(dbMsg)
+                try? self.modelContext?.save()
+                
+                self.tableView.reloadData()
+                self.scrollToBottom(animated: true)
+            }
+        }
+        
     }
     
     @objc private func didTapSend() {
         guard let text = textField.text, !text.trimmingCharacters(in: .whitespaces).isEmpty else { return }
         textField.text = ""
         
-        // 1. Add User query straight into the message stream
         let userMessage = ChatMessage(text: text, sender: .user)
         messages.append(userMessage)
         
-        let targetIndexPath = IndexPath(row: self.messages.count - 1, section: 0)
-        tableView.reloadData()
-        tableView.scrollToRow(at: targetIndexPath, at: .bottom, animated: true)
+        let dbUserMsg = PersistedMessage(text: text, senderType: "user")
+        modelContext?.insert(dbUserMsg)
         
-        // 2. Fetch the Ranked Context Snippet concurrently
+        self.tableView.reloadData()
+        self.scrollToBottom(animated: true)
         let contextSnippet = KnowledgeService.shared.getContext(for: text)
+        setInterfaceProcessing(true)
         
-        // 3. Dispatch Background AI Inference safely
         Task {
             do {
-                if let aiEngine = AIManager.shared.engine {
-                    let aiOutput = try await aiEngine.generateResponse(prompt: text, context: contextSnippet)
+                // Automatically manages background processing state context flags internally
+                let aiOutput = try await AIManager.shared.generateResponse(prompt: text, context: contextSnippet)
+                
+                await MainActor.run {
+                    self.setInterfaceProcessing(false)
                     
-                    // Add AI reply paired to the source metadata to prove the output is grounded
-                    let aiMessage = ChatMessage(text: aiOutput, sender: .ai(sourceContext: contextSnippet))
+                    let aiMessage = ChatMessage(text: aiOutput, sender: .ai(sourceContext: contextSnippet.isEmpty ? nil : contextSnippet))
                     self.messages.append(aiMessage)
                     
+                    let dbAiMsg = PersistedMessage(text: aiOutput, senderType: "ai", sourceContext: contextSnippet.isEmpty ? nil : contextSnippet)
+                    self.modelContext?.insert(dbAiMsg)
+                    try? self.modelContext?.save()
+                    
                     self.tableView.reloadData()
-                    let newIndex = IndexPath(row: self.messages.count - 1, section: 0)
-                    self.tableView.scrollToRow(at: newIndex, at: .bottom, animated: true)
+                    self.scrollToBottom(animated: true)
                 }
             } catch {
-                print("Inference handling failure: \(error)")
+                await MainActor.run {
+                    self.setInterfaceProcessing(false)
+                    print("Engine pipeline exception log: \(error)")
+                }
             }
         }
+    }
+    
+    private func setInterfaceProcessing(_ isProcessing: Bool) {
+        if isProcessing {
+            sendButton.isHidden = true
+            loadingIndicator.startAnimating()
+            attachButton.isEnabled = false
+            textField.placeholder = "AI is thinking..."
+        } else {
+            loadingIndicator.stopAnimating()
+            sendButton.isHidden = false
+            textField.isEnabled = true
+            attachButton.isEnabled = true
+            textField.placeholder = "Ask your document..."
+        }
+    }
+    
+    private func scrollToBottom(animated: Bool) {
+        guard !messages.isEmpty else { return }
+        let index = IndexPath(row: messages.count - 1, section: 0)
+        tableView.scrollToRow(at: index, at: .bottom, animated: animated)
     }
     
     @objc private func dismissKeyboard() {

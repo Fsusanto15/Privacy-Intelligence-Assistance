@@ -26,7 +26,7 @@ class ViewController: UIViewController {
             // 2. Load the PDF into the Knowledge Service
             // use Felix B Susanto - Resume or Internship Weekly Reports - Felix B Susanto (48067563)
             if let resumeURL = Bundle.main.url(forResource: "Felix B Susanto - Resume", withExtension: "pdf") {
-                KnowledgeService.shared.loadPDF(at: resumeURL)
+                await KnowledgeService.shared.loadPDF(at: resumeURL)
                 print("✅ PDF Loaded into Knowledge Base")
             } else {
                 print("❌ Could not find Resume.pdf in Bundle")

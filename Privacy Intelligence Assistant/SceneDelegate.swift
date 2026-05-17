@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SwiftData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var sharedModelContainer: ModelContainer?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -17,7 +19,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         AIManager.shared.initializeEngine()
         
+        // 1. Set up the schema container on disk
+        do {
+            let schema = Schema([PersistedChunk.self, PersistedMessage.self])
+            let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+            sharedModelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
+        } catch {
+            fatalError("Could not create ModelContainer: \(error)")
+        }
+        
+        guard let container = sharedModelContainer else { return }
+        let mainContext = container.mainContext
+        
+        // 2. Inject dependency straight into our RAG engine service
+        KnowledgeService.shared.configure(with: mainContext)
+        
         let chatVC = ChatViewController()
+        chatVC.modelContext = mainContext
         let navController = UINavigationController(rootViewController: chatVC)
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navController
